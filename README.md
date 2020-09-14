@@ -1,3 +1,5 @@
+# Custom UDDs
+
 * Filter Empty
 * Round Numbers
 * Rows Filter
@@ -96,12 +98,12 @@ row-validator
 # Convert Currency
 Description
 -----------
-convert-currency is a UDD that converts a currency to another chosen 
-currency. This UDD takes three arguments: the column name, what currency is tha data 
-in that column and in what currency to convert it. It accepts only USD,EUR and CAD.
+convert-currency is a UDD that converts a currency to another chosen currency. This UDD takes three arguments: the column name, what currency is tha data in that column and in what currency to convert it. It accepts only USD,EUR and CAD.
+
 Use case
 --------- 
 Used to convert currency's from one to another.
+
 Example
 -------
 For example, we have the column Money which is in US Dollars, and 
@@ -114,9 +116,11 @@ Description
 -----------
 duplicate-column is a UDD that duplicates a chosen column with
 a new name, the rows are unchanged.
+
 Use case
 --------- 
 Used when you need the same data but labeled in a different name.
+
 Example
 --------
 For example, we have the column name StartDate, but we want to have another column 
@@ -129,9 +133,11 @@ Description
 ----------- 
 int-manipulation is a UDD that allows you to manipulate with number
 in a chosen column. You can add, subtract, multiply, division. 
+
 Use case
 --------- 
 Used when you need to manipulate numbers in a given column.
+
 Example
 --------
 For example, we have a column with name Price, and we want to increase each row by ten.
@@ -143,9 +149,11 @@ Description
 ----------- 
 replace-row is a UDD that allows you to change the values of rows based on
 their previous values.
+
 Use case
 --------- 
 Used when you need to change values of chosen rows to another desired value.
+
 Example
 --------
 For example, we have a column with a name Weekday, and we want to change rows
@@ -158,10 +166,12 @@ Description
 ----------- 
 split-text is a UDD that allows you to split  the text of rows in
 a chosen column in two parts and add them in two new different columns.
+
 Use case
 --------- 
 Used when you need to split text for example emails splitting them in
 username and domain.
+
 Example
 --------
 For example, we have a column with name Email, and we want to separate the username 
