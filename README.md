@@ -185,6 +185,88 @@ Here is the JUnit class that couldn't be any simpler.
   }
 ```
 
+
+# Filter Empty
+
+Description
+-----------
+Filter empty columns in the dataset.
+
+Use case
+-----------
+To avoid empty columns in the dataset, you can either delete the entire row containing empty column, or set a given value to the empty fields.
+
+Example
+-----------
+```
+filter-empty :column
+filter-empty :column 'keep','fillValue';
+```
+
+# Round Numbers
+
+Description
+-----------
+Round decimal numbers to the nearest Integer.
+
+Use case
+-----------
+Used to convert values of a specific column of any type (floating-point, string) to the nearest Integer.
+
+Example
+-----------
+```
+round-numbers :column
+```
+
+# Rows Filter
+
+Description
+-----------
+Filter rows according to the given criteria.
+
+Use case
+-----------
+Used to filter rows containing numeric data according to the given type (bigger, smaller) and given value (integer) to be compared with.
+
+Example
+-----------
+```
+rows-filter :column 'smaller','30';
+```
+
+# Row Size
+
+Description
+-----------
+Calculate size of a row.
+
+Use case
+-----------
+Used to calculate the size in bytes, of a row containing data of type string and stores the value in a new column.
+
+Example
+-----------
+```
+row-size
+```
+
+# Row Validator
+
+Description
+-----------
+Validate date consistency of a row.
+
+Use case
+-----------
+Used to calculate the data consistency of a row, by checking the percentage of non-empty columns.
+
+Example
+-----------
+```
+row-validator
+```
+
 ## That's it! Happy UDD'ing.
 
  

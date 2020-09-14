@@ -83,6 +83,12 @@
       <version>${commons.codec.version}</version>
     </dependency>
 
+    <dependency>
+      <groupId>com.idealista</groupId>
+      <artifactId>format-preserving-encryption</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+
     <!-- Testing Dependencies -->
     <dependency>
       <groupId>io.cdap.wrangler</groupId>

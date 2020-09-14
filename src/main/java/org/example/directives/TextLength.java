@@ -42,7 +42,7 @@ public final class TextLength implements Directive {
 
   @Override
   public UsageDefinition define() {
-    // Usage : text-reverse :column;
+    // Usage : text-length :column;
     UsageDefinition.Builder builder = UsageDefinition.builder(DIRECTIVE_NAME);
     builder.define("column", TokenType.COLUMN_NAME);
     return builder.build();
