@@ -32,30 +32,32 @@ public class FilterEmpty implements Directive {
         column = ((ColumnName) arguments.value("column")).value();
         TextList args = arguments.value("args");
 
+        if(args != null)
+            if (args.value().size() == 2) {
+                String type = args.value().get(0);
 
-        if (args.value().size() == 2) {
-            String type = args.value().get(0);
-
-            if (type.equalsIgnoreCase("keep"))
-                this.type = type;
-            else throw new DirectiveParseException(
-                    String.format("Invalid filtering type \"%s\" specified. Allowed only \"keep\" or empty!", type)
-            );
-
-            String fillValue = args.value().get(1);
-            if (fillValue.equals("")) {
-                throw new DirectiveParseException(
-                        String.format("Invalid value '%s' specified.", fillValue)
+                if (type.equalsIgnoreCase("keep"))
+                    this.type = type;
+                else throw new DirectiveParseException(
+                        String.format("Invalid filtering type \"%s\" specified. Allowed only \"keep\" or empty!", type)
                 );
+
+                String fillValue = args.value().get(1);
+                if (fillValue.equals("")) {
+                    throw new DirectiveParseException(
+                            String.format("Invalid value '%s' specified.", fillValue)
+                    );
+                }
+                this.fillValue = fillValue;
             }
-            this.fillValue = fillValue;
-        }
 
     }
 
     @Override
     public List<Row> execute(List<Row> rows, ExecutorContext executorContext) throws DirectiveExecutionException, ErrorRowException, ReportErrorAndProceed {
-        return FilterEmptyUtil.execute(rows, column, type, fillValue);
+        if(type != null)
+            return FilterEmptyUtil.filterEmptyKeep(rows, column, type, fillValue);
+        return FilterEmptyUtil.filterEmpty(rows, column);
     }
 
     @Override

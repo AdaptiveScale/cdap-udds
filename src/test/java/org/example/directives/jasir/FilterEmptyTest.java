@@ -19,7 +19,7 @@ public class FilterEmptyTest {
         recipe.add("parse-as-csv :body ',';");
         recipe.add("drop :body;");
         recipe.add("set-headers :a,:b,:c;");
-        recipe.add("filter-empty :b 'keep','empty';");
+        recipe.add("filter-empty :b");
 
         TestRows rows = new TestRows();
         rows.add(new Row("body", "root,1,mars avenue"));
@@ -28,6 +28,6 @@ public class FilterEmptyTest {
         RecipePipeline pipeline = TestingRig.pipeline(FilterEmpty.class, recipe);
         List<Row> actual = pipeline.execute(rows.toList());
 
-        Assert.assertEquals("empty", actual.get(1).getValue("b"));
+        Assert.assertEquals(1, actual.size());
     }
 }
